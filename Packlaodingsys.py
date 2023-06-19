@@ -38,18 +38,20 @@ for i in range(total_items):
     
     if current_weight + item_sent > 20:
         pack_sent += 1
-        weight_sent += current_weight
-        current_weight = item_sent
         unused_capacity = 20 - current_weight 
         total_unused_capacity += unused_capacity
+        weight_sent += current_weight
+        current_weight = item_sent
+
         print("Package is ready to go." )
     elif current_weight + item_sent == 20:
         pack_sent += 1
         weight_sent += current_weight
         current_weight = item_sent
         print("Package is ready to go." )
-
-    current_weight += item_sent
+    else:
+        current_weight += item_sent
+        
     if i == total_items - 1:
         pack_sent += 1
         weight_sent += current_weight
